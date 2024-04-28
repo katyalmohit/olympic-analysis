@@ -7,6 +7,7 @@ region_df = pd.read_csv('../dataset/noc_regions.csv')
 
 df = preprocessor.preprocess(df, region_df)
 
+st.sidebar.title("Olympics Analysis")
 user_menu = st.sidebar.radio(
     "Select an option",
     ("Medal Tally", "Overall Analysis", "Country-wise Analysis", "Athlete wise Analysis")
