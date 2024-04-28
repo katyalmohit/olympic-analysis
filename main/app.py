@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import preprocessor
+import preprocessor, helper
 
 df = preprocessor.preprocess()
 
@@ -10,3 +10,7 @@ st.sidebar.radio(
 )
 
 st.dataframe(df)
+
+if user_menu == 'Medal Tally':
+    medal_tally = helper.medal_tally(df)
+    st.dataframe(medal_tally)
