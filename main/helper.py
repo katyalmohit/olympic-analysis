@@ -1,4 +1,5 @@
 import numpy as np
+
 def medal_tally(df):
     
     medal_tally = df.drop_duplicates(subset=['Team', 'NOC', 'Games', 'Year', 'City', 'Sport', 'Event', 'Medal'])
@@ -18,7 +19,7 @@ def country_year_list(df):
     years.insert(0, 'Overall')
     
     # for country
-    country = np.unique(df['region'].dropna().values.tolist())
+    country = np.unique(df['region'].dropna().values).tolist()
     country.sort()
     country.insert(0, 'Overall')
     
