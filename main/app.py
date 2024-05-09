@@ -13,7 +13,7 @@ user_menu = st.sidebar.radio(
     ("Medal Tally", "Overall Analysis", "Country-wise Analysis", "Athlete wise Analysis")
 )
 
-st.dataframe(df)
+# st.dataframe(df)
 
 if user_menu == 'Medal Tally':
     st.sidebar.header('Medal Tally')
