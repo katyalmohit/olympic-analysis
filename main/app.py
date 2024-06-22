@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import preprocessor, helper
-import plotly as px
+import plotly.express as px
 
 df = pd.read_csv('../dataset/athlete_events.csv')
 region_df = pd.read_csv('../dataset/noc_regions.csv')
@@ -68,5 +68,5 @@ if user_menu == 'Overall Analysis':
     
     nations_over_time = helper.participation_nations_over_time(df)
     print(nations_over_time.head())
-    fig = px.line(nations_over_time, x = "Edition", y = "No. of Countries")
+    fig = px.line(nations_over_time, x = 'Edition', y = 'No. of Countries')
     st.plotly_chart(fig)

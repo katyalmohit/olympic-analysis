@@ -1,5 +1,4 @@
 import numpy as np
-import plotly as px
 def medal_tally(df):
     
     medal_tally = df.drop_duplicates(subset=['Team', 'NOC', 'Games', 'Year', 'City', 'Sport', 'Event', 'Medal'])
