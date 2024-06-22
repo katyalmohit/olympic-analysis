@@ -41,6 +41,8 @@ if user_menu == 'Overall Analysis':
     athletes = df['Name'].unique().shape[0]
     nations = df['region'].unique().shape[0]
     
+    st.title("Top Statistics")
+    
     col1, col2, col3 = st.columns(3) #Earlier it was st.beta_columns
     with col1:
         st.header("Editions")
