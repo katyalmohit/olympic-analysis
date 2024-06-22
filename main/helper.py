@@ -48,7 +48,7 @@ def fetch_medal_tally(df,year, country):
     x['total'] = x['total'].astype('int')
     return x
 
-def participation_nations_over_time(df):
-    nations_over_time = df.drop_duplicates(['Year', 'region'])['Year'].value_counts().reset_index().sort_values('Year')
-    nations_over_time.rename(columns = {'Year':'Edition', 'count': 'No. of Countries'}, inplace= True)
-    return nations_over_time
+def data_over_time(df, col, lbl):
+    data_over_time = df.drop_duplicates(['Year', col])['Year'].value_counts().reset_index().sort_values('Year')
+    data_over_time.rename(columns = {'Year':'Edition', 'count': lbl}, inplace= True)
+    return data_over_time

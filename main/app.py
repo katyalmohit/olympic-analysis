@@ -44,7 +44,7 @@ if user_menu == 'Overall Analysis':
     
     st.title("Top Statistics")
     
-    col1, col2, col3 = st.columns(3) #Earlier it was st.beta_columns
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Editions")
         st.title(editions)
@@ -55,7 +55,7 @@ if user_menu == 'Overall Analysis':
         st.header("Sports")
         st.title(sports)
         
-    col1, col2, col3 = st.columns(3) #Earlier it was st.beta_columns
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Events")
         st.title(events)
@@ -66,7 +66,17 @@ if user_menu == 'Overall Analysis':
         st.header("Athletes")
         st.title(athletes)
     
-    nations_over_time = helper.participation_nations_over_time(df)
-    print(nations_over_time.head())
-    fig = px.line(nations_over_time, x = 'Edition', y = 'No. of Countries')
+    nation_over_time = helper.data_over_time(df, 'region', "No. of Countries")
+    st.title("Participating Nations over the years")
+    fig = px.line(nation_over_time, x = 'Edition', y = 'No. of Countries')
+    st.plotly_chart(fig)
+    
+    event_over_time = helper.data_over_time(df, 'Event', "No. of Events")
+    st.title("Events over the years")
+    fig = px.line(event_over_time, x = 'Edition', y = 'No. of Events')
+    st.plotly_chart(fig)
+    
+    athlete_over_time = helper.data_over_time(df, 'Name', "No. of Athletes")
+    st.title("Athletes over the years")
+    fig = px.line(athlete_over_time, x = 'Edition', y = 'No. of Athletes')
     st.plotly_chart(fig)
