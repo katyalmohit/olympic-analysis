@@ -31,4 +31,4 @@ if user_menu == 'Medal Tally':
         st.title(selected_country + "'s Overall Tally")
     if selected_year != 'Overall' and selected_country != 'Overall':
         st.title(selected_country + "'s Tally in " + str(selected_year) + " Olympics")
-    st.dataframe(medal_tally)
+    st.table(medal_tally)
