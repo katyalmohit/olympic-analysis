@@ -52,3 +52,13 @@ def data_over_time(df, col, lbl):
     data_over_time = df.drop_duplicates(['Year', col])['Year'].value_counts().reset_index().sort_values('Year')
     data_over_time.rename(columns = {'Year':'Edition', 'count': lbl}, inplace= True)
     return data_over_time
+
+def most_successful(df, sport):
+    temp_df = df.dropna(subset=['Medal'])
+
+    if sport != 'Overall':
+        temp_df = temp_df[temp_df['Sport'] == sport]
+        
+    result = temp_df['Name'].value_counts().reset_index().head(15).merge(df, on = 'Name', how='left')[['Name', 'count', 'Sport', 'region']].drop_duplicates('Name')
+    result.rename(columns={'count':'Medals'}, inplace=True)
+    return result
