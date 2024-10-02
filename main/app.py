@@ -112,7 +112,7 @@ if user_menu == "Country-wise Analysis":
     
     country_df = helper.yearwise_medal_tally(df, selected_country)
     fig = px.line(country_df, x='Year', y='Medal')
-    st.title(selected_country + 'Medal Tally over the years')
+    st.title(selected_country + ' Medal Tally over the years')
     st.plotly_chart(fig)
     
     st.title(selected_country + " excels in the following sports")
